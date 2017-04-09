@@ -13,7 +13,8 @@ echo -e "Content-type: text/html\n\n"
 #			     VARIAVEIS INICIAIS					 #
 #--------------------------------------------------------------------------------#
 #-->Hostname
-hostname=`hostname`
+#hostname=`hostname`
+hostname="localhost"
 #-->Secutiry Shell comand
 ssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no $REMOTE_USER@$hostname"
 #-->Corte para pegar nome do arquivo
