@@ -7,6 +7,7 @@
 #--------------------------------------------------------------------------------#
 #    			Criando usuario local 					 #
 #--------------------------------------------------------------------------------#
+server=$1
 nuser=u$RANDOM
 tpass=P45s$RANDOM
 #echo "<h2>User: "$nuser" Pass: "$tpass"</h2>"
@@ -72,7 +73,9 @@ echo 'rm -rf /opt/vps/homesh/'$nuser.sh >> $homesh
 chmod +x $homesh
 at -f $homesh now +25 minutes
 
-rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@'$SERVER_NAME'/~'$nuser'/cgi-bin/vps.sh">'
+#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@luw.servehttp.com/~'$nuser'/cgi-bin/vps.sh">'
+#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@8.43.87.71/~'$nuser'/cgi-bin/vps.sh">'
+rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@'$server'/~'$nuser'/cgi-bin/vps.sh">'
 echo $rodared
 
 #echo <meta http-equiv="refresh" content="0;url=http://$nuser:$tpass@'$SERVER_NAME'/~$nuser/">
