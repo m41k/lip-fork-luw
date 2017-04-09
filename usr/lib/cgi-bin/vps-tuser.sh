@@ -72,7 +72,7 @@ echo 'rm -rf /opt/vps/homesh/'$nuser.sh >> $homesh
 chmod +x $homesh
 at -f $homesh now +25 minutes
 
-rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@luw.servehttp.com/~'$nuser'/cgi-bin/vps.sh">'
+rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@'$SERVER_NAME'/~'$nuser'/cgi-bin/vps.sh">'
 echo $rodared
 
 #echo <meta http-equiv="refresh" content="0;url=http://$nuser:$tpass@'$SERVER_NAME'/~$nuser/">
