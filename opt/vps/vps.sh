@@ -110,7 +110,7 @@ if [ $FORM_ncont != "" ]; then
 #------>Gerando porta randomica
         port=$((RANDOM%49152+16383))
         echo "<b>SSH:</b><br>"
-        echo "luw.servehttp.com:"$port
+        echo $SERVER_NAME':'$port
 #       echo "Ativado"
 #------>Pegando ip container
 	echo "<br>"
