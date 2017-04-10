@@ -1,6 +1,6 @@
 #!/bin/zsh
 #--------------------------------------------------------------------------------#
-#		            PROJETO VPS						 #
+#		            LIP FOR LUW						 #
 # 		CREATED BY: maik.alberto@hotmail.com				 #
 #--------------------------------------------------------------------------------#
 
@@ -97,8 +97,8 @@ if [ $FORM_ncont != "" ]; then
 	 done
 
 #------>Criar usuarios
-	user=vps
-	pass=vps
+	user=lip
+	pass=lip
         eval $ssh lxc-attach -n $FORM_ncont -- useradd -m $user -s /bin/bash
         eval $ssh lxc-attach -n $FORM_ncont -- usermod -p $(openssl passwd $pass) $user
         #sleep 3
@@ -128,7 +128,7 @@ if [ $FORM_ncont != "" ]; then
 	echo $ipc
 
 #------>Abrir porta
-open="sudo /opt/vps/tools/vps-iptables.sh $port $ipc 22"
+open="sudo /opt/lip/tools/lip-iptables.sh $port $ipc 22"
 echo "<br>"
 echo $open
 eval $open
