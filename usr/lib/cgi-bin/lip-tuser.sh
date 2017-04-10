@@ -48,7 +48,7 @@ mkdir /home/$nuser/public_html/cgi-bin/luw-box
 chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/luw-box
 cp /opt/lip/lip.sh /home/$nuser/public_html/cgi-bin/
 chmod +x /home/$nuser/public_html/cgi-bin/lip.sh
-chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/lpi.sh
+chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/lip.sh
 
 #--------------------------------------------------------------------------------#
 #                       Configurando Secutiry Shell 		                 #
