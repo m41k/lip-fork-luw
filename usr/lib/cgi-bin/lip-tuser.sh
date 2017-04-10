@@ -16,7 +16,7 @@ useradd -m $nuser -p `openssl passwd -1 $tpass`
 #--------------------------------------------------------------------------------#
 #      			Log - add usuario criado 					 #
 #--------------------------------------------------------------------------------#
-logacesso=/opt/vps/log/acesso
+logacesso=/opt/lip/log/acesso
 echo $nuser >> $logacesso
 #--------------------------------------------------------------------------------#
 #		      Configurando usuario para utilizar o LXC	                 #
@@ -46,9 +46,9 @@ mkdir /home/$nuser/public_html/cgi-bin
 chown $nuser:$nuser /home/$nuser/public_html/cgi-bin
 mkdir /home/$nuser/public_html/cgi-bin/luw-box
 chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/luw-box
-cp /opt/vps/vps.sh /home/$nuser/public_html/cgi-bin/
-chmod +x /home/$nuser/public_html/cgi-bin/vps.sh
-chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/vps.sh
+cp /opt/lip/lip.sh /home/$nuser/public_html/cgi-bin/
+chmod +x /home/$nuser/public_html/cgi-bin/lip.sh
+chown $nuser:$nuser /home/$nuser/public_html/cgi-bin/lpi.sh
 
 #--------------------------------------------------------------------------------#
 #                       Configurando Secutiry Shell 		                 #
@@ -61,7 +61,7 @@ su $nuser -c "ssh-keygen -t rsa -f /home/$nuser/.ssh/id_rsa -N '' > /dev/null; c
 #--------------------------------------------------------------------------------#
 #sed -e "/$nuser veth lxcbr0 10/d" /etc/lxc/lxc-usernet > /etc/lxc/lxc-usernet
 
-homesh=/opt/vps/homesh/$nuser.sh
+homesh=/opt/lip/homesh/$nuser.sh
 
 echo '#!/bin/bash' > $homesh
 echo 'nid=`id -u '$nuser'`' >> $homesh
@@ -69,13 +69,13 @@ echo 'procs=`ps -u $nid | cut -c 1-6 | paste -s | tr -d "PID" | expand -i | tr -
 echo 'userdel -rf  '$nuser' 2> /dev/null' >> $homesh
 echo 'kill -9 $procs 2> /dev/null' >> $homesh
 #echo 'sed -e "/'$nuser 'veth lxcbr0 10/d" /etc/lxc/lxc-usernet > /etc/lxc/lxc-usernet' >> $homesh
-echo 'rm -rf /opt/vps/homesh/'$nuser.sh >> $homesh
+echo 'rm -rf /opt/lip/homesh/'$nuser.sh >> $homesh
 chmod +x $homesh
 at -f $homesh now +25 minutes
 
-#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@luw.servehttp.com/~'$nuser'/cgi-bin/vps.sh">'
-#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@8.43.87.71/~'$nuser'/cgi-bin/vps.sh">'
-rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@'$server'/~'$nuser'/cgi-bin/vps.sh">'
+#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@luw.servehttp.com/~'$nuser'/cgi-bin/lip.sh">'
+#rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@8.43.87.71/~'$nuser'/cgi-bin/lip.sh">'
+rodared='<meta http-equiv="refresh" content="0;url=http://'$nuser':'$tpass'@'$server'/~'$nuser'/cgi-bin/lip.sh">'
 echo $rodared
 
 #echo <meta http-equiv="refresh" content="0;url=http://$nuser:$tpass@'$SERVER_NAME'/~$nuser/">
